@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "lint:prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "lint:eslint:check": "eslint --max-warnings 0 \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:eslint:fix": "eslint --max-warnings 0 \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "fix": "npm run lint:prettier:fix && npm run lint:eslint:fix",
+    "check": "npm run lint:prettier:check && npm run lint:eslint:check && npm run"
   },
   "dependencies": {
     "react": "^18.2.0",
