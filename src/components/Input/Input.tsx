@@ -34,11 +34,11 @@ const StyledInputContainer = styled.div<{ error: boolean }>`
 
   > input {
     border-color: ${(props) =>
-      props.error ? "var(--palette-red)" : "transparent"};
+      props.error ? 'var(--palette-red)' : 'transparent'};
   }
   > label {
     color: ${(props) =>
-      props.error ? "var(--palette-red)" : "var(--palette-very-light-blue)}"};
+      props.error ? 'var(--palette-red)' : 'var(--palette-very-light-blue)}'};
   }
 `;
 

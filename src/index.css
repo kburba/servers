@@ -1,2 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Roboto:wght@300&display=swap');
+
 :root {
+  --palette-dark-blue: #000027;
+  --palette-lighter-dark-blue: #0d0d32;
+  --palette-very-light-blue: #f2ffffb3;
+  --palette-bright-green: #b1eb21;
+  --palette-bright-green-lighter: #c8fc47;
+  --palette-bright-green-darker: #a2d91a;
+  --palette-red: #ff6f6f;
+}
+
+body,
+html {
+  background-image: url('./assets//backgroundImg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--palette-lighter-dark-blue);
+  font-family: 'Robot', sans-serif;
+  color: white;
 }

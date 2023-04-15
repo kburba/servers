@@ -3,9 +3,9 @@ import { ControllerProps, FieldError, FieldValues } from 'react-hook-form';
 
 export type InputProps<T extends FieldValues> = Pick<
   ControllerProps<T>,
-  "control" | "name"
+  'control' | 'name'
 > &
-  ComponentProps<"input"> & {
+  ComponentProps<'input'> & {
     label: string;
     error?: FieldError;
     testId?: string;
