@@ -1,14 +1,16 @@
+import { AxiosError } from 'axios';
 import { useEffect } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { getToken } from '../../api/api';
-import { Heading, PageLayout } from '../../components';
+import { LoginResponse } from '../../api/api.types';
+import { Heading, Loader, PageLayout } from '../../components';
 import { LocalStorage, RouteType } from '../../enums';
 import { getTokenFromCache } from '../../utils/getTokenFromCache';
+import { ErrorText } from '../ErrorText';
 import { LoginForm, LoginFormValues } from './LoginForm';
 
 export const Login = () => {
@@ -16,7 +18,11 @@ export const Login = () => {
 
   const queryClient = useQueryClient();
 
-  const { isLoading, isError, mutate } = useMutation({
+  const { isLoading, isError, error, mutate } = useMutation<
+    LoginResponse,
+    AxiosError,
+    LoginFormValues
+  >({
     mutationFn: getToken,
     onSuccess: (data) => {
       localStorage.setItem(LocalStorage.Token, data.token);
@@ -39,17 +45,9 @@ export const Login = () => {
   return (
     <PageLayout>
       <Heading>Login</Heading>
+      {isLoading && <Loader />}
       <LoginForm isLoading={isLoading} onSubmit={handleSubmit} />
-      {isError && (
-        <StyledError>Login failed. Please try again later.</StyledError>
-      )}
+      {isError && <ErrorText>{error.message}</ErrorText>}
     </PageLayout>
   );
 };
-const StyledError = styled.div`
-  font-size: 0.875rem;
-  color: var(--palette-red);
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
-  text-align: center;
-`;

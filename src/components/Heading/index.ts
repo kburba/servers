@@ -1,2 +1,2 @@
 export { Heading } from './Heading';
-export { HeadingSize } from './enums';
+export { Align, HeadingSize } from './enums';

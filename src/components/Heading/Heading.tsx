@@ -4,15 +4,21 @@ import styled from 'styled-components';
 import { HeadingSize } from './enums';
 import { HeadingAdditionalProps, HeadingProps } from './types';
 
-export const Heading: FC<HeadingProps> = ({ children, noMargin, size }) => {
+export const Heading: FC<HeadingProps> = ({
+  children,
+  noMargin,
+  size,
+  align,
+}) => {
   return (
-    <StyledHeading noMargin={noMargin} size={size}>
+    <StyledHeading noMargin={noMargin} size={size} align={align}>
       {children}
     </StyledHeading>
   );
 };
 
 const StyledHeading = styled.h1<HeadingAdditionalProps>`
+  text-align: ${(props) => props.align || 'inherit'};
   font-family: 'Comfortaa', sans-serif;
   font-weight: 600;
   font-size: ${(props) =>
