@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Button, Input } from '../../components';
+import { LoginTestId } from '../../shared/testIds';
 
 const loginFormSchema = yup.object({
   username: yup.string().required('Please enter your username'),
@@ -41,7 +42,7 @@ export const LoginForm: FC<Props> = ({ onSubmit, isLoading }) => {
         label="Username"
         error={errors.username}
         control={control}
-        testId="myTest"
+        testId={LoginTestId.UsernameInput}
       />
       <Input
         name="password"
@@ -49,8 +50,13 @@ export const LoginForm: FC<Props> = ({ onSubmit, isLoading }) => {
         error={errors.password}
         control={control}
         type="password"
+        testId={LoginTestId.PasswordInput}
       />
-      <Button disabled={isLoading} isLoading={isLoading}>
+      <Button
+        disabled={isLoading}
+        isLoading={isLoading}
+        testId={LoginTestId.SubmitButton}
+      >
         Submit
       </Button>
     </form>

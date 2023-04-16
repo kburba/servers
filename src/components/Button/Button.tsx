@@ -11,6 +11,7 @@ export const Button: FC<ButtonProps> = ({
   onClick,
   isLoading,
   size,
+  testId,
 }) => {
   return (
     <StyledButton
@@ -19,6 +20,7 @@ export const Button: FC<ButtonProps> = ({
       onClick={onClick}
       size={size}
       isLoading={isLoading}
+      data-testid={testId}
     >
       {children}
     </StyledButton>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, PageLayout } from '../../components';
+import { Button, LoginLayout } from '../../components';
 import { LocalStorage, RouteType } from '../../enums';
 
 export const Logout = () => {
@@ -14,10 +14,10 @@ export const Logout = () => {
     navigate(RouteType.Login);
   };
   return (
-    <PageLayout>
+    <LoginLayout>
       <Button type="button" onClick={handleGoToLogin}>
         Back to login
       </Button>
-    </PageLayout>
+    </LoginLayout>
   );
 };
