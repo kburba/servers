@@ -5,11 +5,11 @@ export const RootBoundary = () => {
 
   if (isRouteErrorResponse(error)) {
     if (error.status === 404) {
-      return <div>This page doesn't exist!</div>;
+      return <div>{`This page doesn't exist!`}</div>;
     }
 
     if (error.status === 401) {
-      return <div>You aren't authorized to see this</div>;
+      return <div>{`You aren't authorized to see this`}</div>;
     }
 
     if (error.status === 503) {

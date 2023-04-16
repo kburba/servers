@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import NotFoundAnimation from '../assets/404animation.svg';
-import { Align, Button, Heading, PageLayout } from '../components';
+import { Align, Button, Heading, LoginLayout } from '../components';
 import { RouteType } from '../enums';
 
 export const NotFound = () => {
@@ -9,10 +9,10 @@ export const NotFound = () => {
 
   const handleClick = () => navigate(RouteType.Home);
   return (
-    <PageLayout>
+    <LoginLayout>
       <Heading align={Align.Center}>Page not found</Heading>
-      <img src={NotFoundAnimation} />
+      <img src={NotFoundAnimation} alt="Not Found" />
       <Button onClick={handleClick}>Go to Home</Button>
-    </PageLayout>
+    </LoginLayout>
   );
 };

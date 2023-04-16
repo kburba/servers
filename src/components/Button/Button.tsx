@@ -48,6 +48,7 @@ const StyledButton = styled.button<ButtonAdditionalProps>`
   cursor: pointer;
   display: flex;
   align-items: center;
+  margin-top: ${(props) => (props.size === ButtonSize.Small ? '0' : '3rem')};
   justify-content: center;
 
   :disabled {

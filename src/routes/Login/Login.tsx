@@ -5,9 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { getToken } from '../../api/api';
-import { LoginResponse } from '../../api/api.types';
-import { Heading, Loader, PageLayout } from '../../components';
+import { getToken, LoginResponse } from '../../api';
+import { Heading, Loader, LoginLayout } from '../../components';
 import { LocalStorage, RouteType } from '../../enums';
 import { getTokenFromCache } from '../../utils/getTokenFromCache';
 import { ErrorText } from '../ErrorText';
@@ -43,11 +42,11 @@ export const Login = () => {
   }, [navigate]);
 
   return (
-    <PageLayout>
+    <LoginLayout>
       <Heading>Login</Heading>
       {isLoading && <Loader />}
       <LoginForm isLoading={isLoading} onSubmit={handleSubmit} />
       {isError && <ErrorText>{error.message}</ErrorText>}
-    </PageLayout>
+    </LoginLayout>
   );
 };

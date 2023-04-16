@@ -1,15 +1,15 @@
 import { FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
-export const PageLayout: FC<PropsWithChildren> = ({ children }) => {
+export const LoginLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <StyledContainer>
-      <StyledChildContainer>{children}</StyledChildContainer>
-    </StyledContainer>
+    <NarrowContainer>
+      <NarrowChild>{children}</NarrowChild>
+    </NarrowContainer>
   );
 };
 
-const StyledContainer = styled.div`
+const NarrowContainer = styled.div`
   display: grid;
   grid-template-columns: minmax(1rem, 1fr) minmax(16rem, 24rem) minmax(
       1rem,
@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
   height: 100vh;
 `;
 
-const StyledChildContainer = styled.div`
+const NarrowChild = styled.div`
   grid-area: 2/2/2/2;
   padding: 2rem;
   border-radius: 1rem;
