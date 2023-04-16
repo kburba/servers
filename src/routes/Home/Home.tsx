@@ -1,9 +1,5 @@
-import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import { useQuery } from '@tanstack/react-query';
-
-import { getServerList, ServerListResponse } from '../../api';
 import {
   Button,
   ButtonSize,
@@ -14,6 +10,7 @@ import {
   Table,
 } from '../../components';
 import { RouteType } from '../../enums';
+import { useServers } from '../../hooks/useServers';
 import { ErrorText } from '../ErrorText';
 
 const TABLE_COLUMNS = [
@@ -29,13 +26,7 @@ const TABLE_COLUMNS = [
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { isError, isLoading, isFetching, error, data } = useQuery<
-    ServerListResponse,
-    AxiosError
-  >({
-    queryKey: ['serversList'],
-    queryFn: getServerList,
-  });
+  const { isError, isLoading, isFetching, error, data } = useServers();
 
   const handleLogout = () => {
     navigate(RouteType.Logout);

@@ -5,19 +5,19 @@ import { afterEach } from 'vitest';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { cleanup, render, RenderOptions } from '@testing-library/react';
 
-import { queryClient } from '../api';
+import { testingQueryClient } from '../api';
 
 afterEach(() => {
   cleanup();
 });
 
-const AllTheProviders = ({
+export const AllTheProviders = ({
   children,
 }: {
   children: ReactNode;
 }): JSX.Element => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={testingQueryClient}>
       <BrowserRouter>{children}</BrowserRouter>
     </QueryClientProvider>
   );
@@ -32,3 +32,4 @@ export * from '@testing-library/react';
 export { default as userEvent } from '@testing-library/user-event';
 // override render method
 export { customRender as render };
+
