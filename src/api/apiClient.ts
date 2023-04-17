@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { appEnv } from '../shared/environment';
-import { getTokenFromCache } from '../utils/getTokenFromCache';
+import { getTokenFromCache } from '../utils/tokenFromCache';
 
 export const apiClient = axios.create({
   baseURL: appEnv.baseUrl,

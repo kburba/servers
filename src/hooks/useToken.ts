@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 
 import { getToken, LoginResponse, queryClient } from '../api';
-import { LocalStorage, RouteType } from '../enums';
+import { RouteType } from '../enums';
 import { LoginFormValues } from '../routes/Login/LoginForm';
-import { getTokenFromCache } from '../utils/getTokenFromCache';
+import { getTokenFromCache, setTokenToCache } from '../utils/tokenFromCache';
 
 export const useToken = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export const useToken = () => {
   }, [navigate]);
 
   const onGetTokenSuccess = (data: LoginResponse) => {
-    localStorage.setItem(LocalStorage.Token, data.token);
+    setTokenToCache(data.token);
     queryClient.invalidateQueries();
     navigate(RouteType.Home);
   };

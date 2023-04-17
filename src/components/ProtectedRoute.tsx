@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { RouteType } from '../enums';
-import { getTokenFromCache } from '../utils/getTokenFromCache';
+import { getTokenFromCache } from '../utils/tokenFromCache';
 
 type Props = {
   component: JSX.Element;
