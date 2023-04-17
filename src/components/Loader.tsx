@@ -7,7 +7,6 @@ export const Loader = () => {
     <StyledBackground>
       <StyledCenterElement>
         <StyledImage />
-        {/* <StyledImage src={LoaderAnimation} alt="Loading..." /> */}
         <StyledText>Loading...</StyledText>
       </StyledCenterElement>
     </StyledBackground>
